@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 智能防詐騙分析平台 | 即時分析對話風險</title>
+    <meta name="description" content="運用先進AI技術，為您即時分析對話風險，提供專業的詐騙防範建議。我們擁有超過100萬筆歷史案例分析，24/7全天候為您的資產安全把關。" />
+    <meta name="keywords" content="AI, 防詐, 詐騙分析, 智能分析, 防詐騙, 資安防護, 對話風險, 詐騙分類, 詐騙案例, 詐騙預防, 詐騙偵測, 詐騙偵測工具, 詐騙案例分析, 詐騙案例查詢, 詐騙案例查詢工具, 詐騙案例查詢網站, 詐騙案例查詢網站推薦, 詐騙案例查詢網站推薦2025, 詐騙案例查詢網站推薦2025" />
+    <meta name="author" content="AI防詐衛士" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AI 智能防詐騙分析平台 | 即時分析對話風險" />
+    <meta property="og:description" content="運用先進AI技術，為您即時分析對話風險，提供專業的詐騙防範建議。" />
+    <meta property="og:image" content="/public/banner.webp" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI 智能防詐騙分析平台 | 即時分析對話風險" />
+    <meta name="twitter:description" content="運用先進AI技術，為您即時分析對話風險，提供專業的詐騙防範建議。" />
+    <meta name="twitter:image" content="/public/banner.webp" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://您的網域/" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="/public/css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16">
+          <div class="flex">
+            <div class="flex-shrink-0 flex items-center">
+              <i class="fas fa-shield-alt text-blue-600 text-2xl mr-2"></i>
+              <span class="text-xl font-bold">AI防詐衛士</span>
+            </div>
+            <!-- 桌面版選單 -->
+            <div class="hidden md:ml-6 md:flex md:space-x-8">
+              <a href="#" class="border-b-2 border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium"> AI智能分析 </a>
+              <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium"> 工具整合 </a>
+              <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium"> 詐騙資訊 </a>
+            </div>
+          </div>
+          <!-- 手機版選單按鈕 -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        <!-- 手機版選單內容 -->
+        <div id="mobile-menu" class="hidden md:hidden">
+          <div class="pt-2 pb-3 space-y-1">
+            <a href="#" class="bg-blue-50 border-l-4 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 text-base font-medium">AI智能分析</a>
+            <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">工具整合</a>
+            <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">詐騙資訊</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Banner 區域 -->
+    <div class="banner-section relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-90"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="py-6 sm:py-8 lg:py-16 flex flex-col lg:flex-row items-center justify-between">
+          <div class="w-full lg:w-1/2 mb-8 lg:mb-0 text-white z-10">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">AI 智能防詐騙分析</h1>
+            <p class="text-lg sm:text-xl lg:text-2xl text-blue-100 mb-6">運用 AI 技術，為您即時分析對話風險</p>
+
+            <!-- 警示文案區域 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
+              <!-- 左側：教育性文案 -->
+              <div class="space-y-4 transform hover:scale-102 transition-all duration-300">
+                <div class="flex items-start space-x-2 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <i class="fas fa-graduation-cap text-yellow-300 mt-1 animate-bounce"></i>
+                  <div class="text-yellow-100">
+                    <p class="font-medium mb-1">學會防範詐騙</p>
+                    <p class="text-sm sm:text-base">讓我們一起學習如何保護自己：</p>
+                    <ul class="list-disc ml-5 mt-2 space-y-1 text-xs sm:text-sm">
+                      <li>投資報酬率高得不合理？</li>
+                      <li>陌生帳號主動搭訕投資？</li>
+                      <li>要求安裝遠端軟體？</li>
+                      <li>自稱是政府機關人員？</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-2 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <i class="fas fa-brain text-yellow-300 mt-1 animate-pulse"></i>
+                  <div class="text-yellow-100">
+                    <p class="font-medium mb-1">關鍵思考很重要</p>
+                    <p>面對可疑情況，請謹記：</p>
+                    <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
+                      <li>不要輕易相信高報酬承諾</li>
+                      <li>不隨意點擊不明連結</li>
+                      <li>不要被急迫時間壓力影響</li>
+                      <li>要多方查證資訊真實性</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 右側：警示文案 -->
+              <div class="space-y-4 transform hover:scale-102 transition-all duration-300">
+                <div class="flex items-start space-x-2 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <i class="fas fa-exclamation-triangle text-yellow-300 mt-1 animate-pulse"></i>
+                  <div class="text-yellow-100">
+                    <p class="font-medium mb-1">警覺性要提高</p>
+                    <p class="text-sm sm:text-base">每天有數百起詐騙案例！</p>
+                    <ul class="list-disc ml-5 mt-2 space-y-1 text-xs sm:text-sm">
+                      <li>年輕人易受網路投資詐騙</li>
+                      <li>中年人常遇假投資理財</li>
+                      <li>長者易遭假冒機構詐騙</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-2 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                  <i class="fas fa-shield-alt text-green-300 mt-1 animate-ping"></i>
+                  <div class="text-green-100">
+                    <p class="font-medium mb-1">立即行動</p>
+                    <p>讓 AI 協助你分析可疑對話：</p>
+                    <ul class="list-disc ml-5 mt-2 space-y-1 text-sm">
+                      <li>快速識別詐騙風險</li>
+                      <li>即時提供防範建議</li>
+                      <li>比對歷史詐騙案例</li>
+                      <li>預防財產損失風險</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <button class="group bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center relative overflow-hidden w-full sm:w-auto">
+                <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <i class="fas fa-shield-alt mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+                <span class="relative">
+                  開始分析對話
+                  <span class="block text-xs opacity-90">快速檢查是否有風險</span>
+                </span>
+              </button>
+
+              <button class="group bg-transparent backdrop-blur-sm border-2 border-white/70 hover:border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center relative overflow-hidden hover:shadow-lg w-full sm:w-auto">
+                <div class="absolute inset-0 bg-white/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <i class="fas fa-heart mr-2 group-hover:scale-125 transition-all duration-300 text-pink-300 hover:text-pink-200"></i>
+                <span class="relative">
+                  放心使用
+                  <span class="block text-xs opacity-90 group-hover:opacity-100">您的分析不會外流，內容也不會被記錄</span>
+                </span>
+                <div class="absolute top-0 right-0 -mt-1 -mr-1">
+                  <span class="flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-300 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-400"></span>
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            <div class="mt-6">
+              <a href="https://165dashboard.tw/" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5 font-bold text-white hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-300 group-hover:from-yellow-400 group-hover:to-orange-500 w-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span class="relative flex items-center rounded-md bg-gradient-to-br from-red-500 to-orange-600 px-4 sm:px-8 py-3 transition-all duration-75 ease-in group-hover:bg-opacity-0 text-sm sm:text-base lg:text-lg justify-center sm:justify-start w-full">
+                  <i class="fas fa-chart-line mr-2 text-xl sm:text-2xl lg:text-3xl animate-pulse"></i>
+                  <span class="flex flex-col items-start">
+                    <span class="font-bold">前往內政部警政署 165 打詐儀錶板</span>
+                    <span class="text-xs sm:text-sm opacity-90">更多詐騙數據分析、歷史統計、反詐資訊</span>
+                  </span>
+                  <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="w-1/2 hidden lg:flex justify-center items-center z-10">
+            <div class="relative max-w-md mx-auto">
+              <img src="/public/banner.webp" alt="AI防詐分析" class="w-full rounded-lg shadow-xl transform hover:scale-105 transition duration-300" />
+              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs text-center py-1 rounded-b-lg">此圖片由 AI 生成</div>
+            </div>
+          </div>
+        </div>
+        <!-- 統計數據 -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 py-4 lg:py-8 border-t border-blue-400/30 relative z-10">
+          <div class="text-center text-white p-4 bg-blue-800/30 rounded-lg backdrop-blur-sm hover:bg-blue-700/40 transition-all duration-300 transform hover:scale-105">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1">數萬+</div>
+            <div class="text-sm lg:text-base text-blue-100">歷史案例分析</div>
+          </div>
+          <div class="text-center text-white p-4 bg-blue-800/30 rounded-lg backdrop-blur-sm hover:bg-blue-700/40 transition-all duration-300 transform hover:scale-105">
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1">24/7</div>
+            <div class="text-sm lg:text-base text-blue-100">全天候服務</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 主要內容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
+      <!-- 免責聲明 -->
+      <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-4 md:mb-8">
+        <div class="flex flex-col md:flex-row md:items-start md:space-x-4">
+          <div class="flex-shrink-0 bg-yellow-100 rounded-full p-2 mb-4 md:mb-0 mx-auto md:mx-0">
+            <i class="fas fa-exclamation-triangle text-yellow-600 text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-yellow-800 mb-2 text-center md:text-left">使用須知 & 安全提醒</h3>
+            <div class="prose prose-sm max-w-none">
+              <!-- 責任聲明區塊 -->
+              <div class="bg-red-50 border-l-4 border-red-500 p-3 md:p-4 my-4">
+                <div class="flex flex-col md:flex-row md:items-center">
+                  <div class="flex-shrink-0 mb-2 md:mb-0 text-center md:text-left">
+                    <i class="fas fa-exclamation-circle text-red-600 text-xl"></i>
+                  </div>
+                  <div class="md:ml-3">
+                    <h3 class="text-red-800 font-bold text-center md:text-left">重要責任聲明</h3>
+                    <p class="text-red-700 mt-2 text-sm md:text-base">使用本平台代表您理解並同意：</p>
+                    <p class="text-red-700 font-medium font-bold text-sm md:text-base">若因信賴本平台分析結果而造成任何損失，本平台<strong class="text-red-800">概不負責</strong></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 使用限制與隱私聲明 -->
+              <div class="bg-blue-50 border-l-4 border-blue-500 p-3 md:p-4 my-4">
+                <div class="flex items-start space-x-3">
+                  <div class="flex-shrink-0">
+                    <i class="fas fa-user-shield text-blue-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-blue-800 font-bold mb-2">使用方式與隱私保護</h3>
+                    <div class="space-y-2 text-sm md:text-base text-blue-700">
+                      <p class="flex items-center">
+                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                        為確保服務品質，維護平台安全，我們採用 Google 登入，無需額外註冊
+                      </p>
+                      <p class="flex items-center">
+                        <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                        登入後每日可免費使用固定次數，公平分配 AI 資源
+                      </p>
+                      <p class="flex items-center">
+                        <i class="fas fa-lock text-blue-500 mr-2"></i>
+                        我們只會取得必要的資訊用於辨識您使用本平台的身分，並採用加密方式安全存放
+                      </p>
+                      <p class="flex items-center">
+                        <i class="fas fa-heart text-pink-500 mr-2"></i>
+                        絕對重視您的隱私，不會明文記錄或分享您的個人資料
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-gray-600 mb-3 text-sm md:text-base">本平台除了協助分析風險，也希望培養您的防詐意識：</p>
+              <ul class="list-disc text-yellow-700 space-y-2 ml-4 text-sm md:text-base">
+                <li>
+                  <strong class="text-yellow-800">教育目的：</strong>
+                  本平台提供的分析結果除了<strong>提供參考</strong>外，也希望讓您學習如何識別可疑徵兆
+                </li>
+                <li>
+                  <strong class="text-yellow-800">學習目標：</strong>
+                  希望透過使用本平台，能幫助您擴增防詐意識，更進一步保護您的資產安全
+                </li>
+                <li>
+                  <strong class="text-yellow-800">自我判斷：</strong>
+                  請培養獨立思考能力，不要完全依賴分析結果，應該綜合各方資訊做出判斷
+                </li>
+                <li>
+                  <strong class="text-yellow-800">即時求助：</strong>
+                  若有任何疑慮，請立即撥打 <strong class="text-blue-600">165</strong> 反詐騙專線尋求專業協助
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI 分析區塊 -->
+      <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-4 md:mb-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full filter blur-3xl opacity-20 -mr-32 -mt-32"></div>
+        <div class="relative z-10">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-robot text-blue-600 text-2xl mr-3"></i>
+            <h2 class="text-xl md:text-2xl font-bold text-blue-800">AI 智能風險分析</h2>
+          </div>
+          <div class="mb-6">
+            <div class="relative">
+              <textarea id="chatContent" class="form-control w-full min-h-[150px] max-h-[500px] p-4 rounded-lg border-2 border-blue-200 focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300 resize-none overflow-y-auto" placeholder="請輸入可疑對話內容..." style="height: auto"></textarea>
+              <div class="absolute bottom-3 right-3 text-gray-400 text-sm">
+                <i class="fas fa-shield-alt mr-1"></i>
+                內容不會被記錄
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4">
+            <button id="analyzeBtn" class="group bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center relative overflow-hidden w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none">
+              <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              <i class="fas fa-brain mr-2 text-xl group-hover:rotate-12 transition-transform duration-300"></i>
+              <span class="relative flex flex-col">
+                <span class="font-bold">開始 AI 分析</span>
+                <span class="text-xs opacity-90">智能辨識對話風險</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分析結果區塊 -->
+      <div id="analysisResult" class="bg-white rounded-lg shadow-lg p-4 md:p-6 mb-4 md:mb-8 hidden relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full filter blur-3xl opacity-20 -mr-32 -mt-32"></div>
+        <div class="relative z-10">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-chart-pie text-blue-600 text-2xl mr-3"></i>
+            <h3 class="text-xl md:text-2xl font-bold text-blue-800">分析結果</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-blue-50/50 backdrop-blur-sm rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+              <div class="flex items-center justify-between mb-2">
+                <div class="text-gray-600 font-medium">詐騙風險指數</div>
+                <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
+              </div>
+              <div id="riskScore" class="text-3xl md:text-4xl font-bold text-red-600">-</div>
+            </div>
+            <div class="bg-blue-50/50 backdrop-blur-sm rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+              <div class="flex items-center justify-between mb-2">
+                <div class="text-gray-600 font-medium">相似案例數量</div>
+                <i class="fas fa-search text-yellow-500 text-xl"></i>
+              </div>
+              <div id="keywordCount" class="text-3xl md:text-4xl font-bold text-yellow-600">-</div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-blue-50/50 backdrop-blur-sm rounded-lg p-6">
+              <h4 class="flex items-center text-lg md:text-xl font-bold text-blue-800 mb-4">
+                <i class="fas fa-file-alt text-blue-600 mr-2"></i>
+                詳細分析
+              </h4>
+              <div id="detailedAnalysis" class="text-gray-600 markdown-body prose prose-sm md:prose-base max-w-none">
+                <!-- 分析內容將被動態插入這裡 -->
+              </div>
+            </div>
+            <div class="bg-blue-50/50 backdrop-blur-sm rounded-lg p-6">
+              <h4 class="flex items-center text-lg md:text-xl font-bold text-blue-800 mb-4">
+                <i class="fas fa-history text-blue-600 mr-2"></i>
+                相似案例
+              </h4>
+              <div id="similarCases" class="space-y-4 divide-y divide-gray-200">
+                <!-- 相似案例將被動態插入這裡 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/public/js/main.js"></script>
+  </body>
+</html>
