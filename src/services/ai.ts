@@ -3,12 +3,29 @@ import OpenAI from "openai";
 import { getDatabase } from "../database/index";
 import { systemPrompt } from "../prompt/system";
 import logger from "../utils/logger";
+import { APIKeyManager } from "./apiKeyManager";
 
 dotenv.config();
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const apiKeyManager = APIKeyManager.getInstance();
+
+async function executeWithKeyRotation<T>(operation: (apiKey: string) => Promise<T>): Promise<T> {
+  while (true) {
+    try {
+      return await operation(apiKeyManager.getCurrentKey());
+    } catch (error) {
+      if (error instanceof Error && error.message.includes("Rate limit")) {
+        const nextKey = apiKeyManager.rotateKey();
+        if (!nextKey) {
+          throw error; // 如果沒有更多的 API Key 可用，拋出原始錯誤
+        }
+        // 繼續下一次迴圈，使用新的 API Key
+        continue;
+      }
+      throw error; // 如果不是 Rate Limit 錯誤，直接拋出
+    }
+  }
+}
 
 // 定義案例類型
 interface ScamCase {
@@ -28,28 +45,31 @@ const SIMILARITY_THRESHOLD = 0.85;
 // 生成文本的向量表示
 export async function generateEmbedding(text: string): Promise<number[]> {
   logger.info(`開始生成文本向量 - 文本長度: ${text.length}`);
+  return executeWithKeyRotation(async (apiKey) => {
+    const openai = new OpenAI({ apiKey });
 
-  try {
-    const startTime = Date.now();
-    const response = await openai.embeddings.create({
-      model: "text-embedding-ada-002",
-      input: text,
-    });
-    const endTime = Date.now();
-    const duration = endTime - startTime;
+    try {
+      const startTime = Date.now();
+      const response = await openai.embeddings.create({
+        model: "text-embedding-ada-002",
+        input: text,
+      });
+      const endTime = Date.now();
+      const duration = endTime - startTime;
 
-    logger.info(`向量生成完成 - 耗時: ${duration}ms, 向量維度: ${response.data[0].embedding.length}`);
+      logger.info(`向量生成完成 - 耗時: ${duration}ms, 向量維度: ${response.data[0].embedding.length}`);
 
-    return response.data[0].embedding;
-  } catch (error) {
-    logger.error(`生成向量失敗 - 錯誤: ${error instanceof Error ? error.message : String(error)}`);
-    throw error;
-  }
+      return response.data[0].embedding;
+    } catch (error) {
+      logger.error(`生成 embedding 失敗: ${error instanceof Error ? error.message : String(error)}`);
+      throw error;
+    }
+  });
 }
 
 // 找出相似案例
 async function findSimilarCases(embedding: number[]): Promise<ScamCaseWithSimilarity[]> {
-  console.log(embedding.length)
+  console.log(embedding.length);
   logger.info(`開始搜索相似案例`);
 
   const db = getDatabase();
@@ -71,7 +91,6 @@ async function findSimilarCases(embedding: number[]): Promise<ScamCaseWithSimila
 
   const endTime = Date.now();
   const duration = endTime - startTime;
-
 
   logger.info(`相似度計算完成 - 耗時: ${duration}ms, 找到總計相似案例: ${similarities.length}個`);
 
@@ -96,27 +115,32 @@ export async function analyzeFraudRisk(content: string) {
 
     logger.debug("調用 GPT 進行分析 - 步驟 4/4");
     const startTime = Date.now();
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt,
-        },
-        {
-          role: "user",
-          content: `
-            <Similar_Cases>
-            ${context}
-            </Similar_Cases>
 
-            <Analysis_Request>
-            ${content}
-            </Analysis_Request>
-          `,
-        },
-      ],
+    const response = await executeWithKeyRotation(async (apiKey) => {
+      const openai = new OpenAI({ apiKey });
+      return await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt,
+          },
+          {
+            role: "user",
+            content: `
+              <Similar_Cases>
+              ${context}
+              </Similar_Cases>
+
+              <Analysis_Request>
+              ${content}
+              </Analysis_Request>
+            `,
+          },
+        ],
+      });
     });
+
     const endTime = Date.now();
     const duration = endTime - startTime;
 
@@ -134,11 +158,13 @@ export async function analyzeFraudRisk(content: string) {
       analysis: analysisResult.result,
       riskScore: analysisResult.isMeaningfulContent ? analysisResult.riskScore : 0,
       relatedCount: analysisResult.isMeaningfulContent ? similarCases.length : 0,
-      similarCases: analysisResult.isMeaningfulContent ? topSimilarCases.map(({ content, category, similarity }) => ({
-        content,
-        category,
-        similarity: similarity.toFixed(2),
-      })) : [],
+      similarCases: analysisResult.isMeaningfulContent
+        ? topSimilarCases.map(({ content, category, similarity }) => ({
+            content,
+            category,
+            similarity: similarity.toFixed(2),
+          }))
+        : [],
     };
 
     logger.debug(`處理分析結果 - 分析長度: ${result.analysis.length}, 相似案例數: ${result.similarCases.length}, 類別: ${result.similarCases.map((c) => c.category).join(", ")}`);

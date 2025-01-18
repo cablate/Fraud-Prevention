@@ -134,7 +134,7 @@ export const SOURCES: CrawlerSource[] = [
     },
     params: {
       "UsingPaging": true,
-      "NumberOfPerPage": 20000,
+      "NumberOfPerPage": 1000,
       "PageIndex": 1,
       "SortOrderInfos": [
           {

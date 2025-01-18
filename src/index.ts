@@ -26,7 +26,8 @@ initializeDatabase()
     console.log("資料庫初始化成功");
     console.log("開始執行爬蟲任務");
     const crawler = new ScamCrawler();
-    crawler.crawl();
+    // crawler.processNoTitleCases();
+    // crawler.crawl();
     console.log("建立排程爬蟲任務");
     scheduleCrawler();
     console.log("排程爬蟲任務建立完成");

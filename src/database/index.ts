@@ -37,6 +37,9 @@ export async function initializeDatabase() {
     CREATE INDEX IF NOT EXISTS idx_url ON scam_cases(url);
     CREATE INDEX IF NOT EXISTS idx_publish_date ON scam_cases(publish_date);
     CREATE INDEX IF NOT EXISTS idx_source ON scam_cases(source);
+    CREATE INDEX IF NOT EXISTS idx_embedding ON scam_cases(embedding);
+    CREATE INDEX IF NOT EXISTS idx_category ON scam_cases(category);
+    CREATE INDEX IF NOT EXISTS idx_created_at ON scam_cases(created_at);
   `);
 
   return db;
