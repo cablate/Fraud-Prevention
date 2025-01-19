@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>隱私權政策與使用說明 | AI防詐衛士</title>
+    <meta name="description" content="AI防詐衛士的隱私權政策、免責聲明及使用說明。我們重視您的隱私，並致力於保護您的個人資料安全。" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="/public/css/style.css" rel="stylesheet" />
+
+    <!-- Loading 動畫樣式 -->
+    <style>
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .loading-content {
+        text-align: center;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        color: #3498db;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">載入中...</div>
+      </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between h-16">
+          <div class="flex">
+            <div class="flex-shrink-0 flex items-center">
+              <i class="fas fa-shield-alt text-blue-600 text-2xl mr-2"></i>
+              <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">AI防詐衛士</span>
+            </div>
+            <!-- 桌面版選單 -->
+            <div class="hidden md:ml-6 md:flex md:space-x-8">
+              <a href="/" class="nav-link border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <i class="fas fa-robot mr-2"></i>
+                AI智能分析
+              </a>
+              <a href="/privacy" class="nav-link active border-b-2 border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <i class="fas fa-book mr-2"></i>
+                各項說明
+              </a>
+              <a href="#" class="nav-link border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                <i class="fas fa-info-circle mr-2"></i>
+                相關資訊
+              </a>
+            </div>
+          </div>
+          <!-- 手機版選單按鈕 -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+        <!-- 手機版選單內容 -->
+        <div id="mobile-menu" class="hidden md:hidden">
+          <div class="pt-2 pb-3 space-y-1">
+            <a href="/" class="mobile-menu-enter border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium flex items-center">
+              <i class="fas fa-robot mr-2"></i>
+              AI智能分析
+            </a>
+            <a href="/privacy" class="mobile-menu-enter bg-blue-50 border-l-4 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 text-base font-medium flex items-center">
+              <i class="fas fa-book mr-2"></i>
+              各項說明
+            </a>
+            <a href="#" class="mobile-menu-enter border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium flex items-center">
+              <i class="fas fa-info-circle mr-2"></i>
+              相關資訊
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 為固定導航欄添加間距 -->
+    <div class="h-16"></div>
+
+    <!-- 主要內容 -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+      <div class="space-y-8">
+        <!-- 頁面標題 -->
+        <div class="text-center">
+          <h1 class="text-3xl font-bold text-gray-900">隱私權政策與使用說明</h1>
+          <p class="mt-2 text-gray-600">最後更新日期：2024年1月</p>
+        </div>
+
+        <!-- 目錄 -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+          <h2 class="text-xl font-semibold text-gray-900 mb-4">目錄</h2>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <li>
+              <a href="#privacy" class="block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                <div class="flex items-center text-blue-600">
+                  <i class="fas fa-user-shield text-xl mr-3"></i>
+                  <span class="font-medium">隱私權政策</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-1 ml-8">了解我們如何保護您的資料</p>
+              </a>
+            </li>
+            <li>
+              <a href="#disclaimer" class="block p-3 rounded-lg hover:bg-yellow-50 transition-colors duration-200">
+                <div class="flex items-center text-yellow-600">
+                  <i class="fas fa-exclamation-triangle text-xl mr-3"></i>
+                  <span class="font-medium">免責聲明</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-1 ml-8">使用本服務前的重要注意事項</p>
+              </a>
+            </li>
+            <li>
+              <a href="#ai-notice" class="block p-3 rounded-lg hover:bg-purple-50 transition-colors duration-200">
+                <div class="flex items-center text-purple-600">
+                  <i class="fas fa-robot text-xl mr-3"></i>
+                  <span class="font-medium">AI 使用須知</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-1 ml-8">AI 模型的特性與限制說明</p>
+              </a>
+            </li>
+            <li>
+              <a href="#terms" class="block p-3 rounded-lg hover:bg-green-50 transition-colors duration-200">
+                <div class="flex items-center text-green-600">
+                  <i class="fas fa-file-contract text-xl mr-3"></i>
+                  <span class="font-medium">使用條款</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-1 ml-8">平台使用規範與權利義務</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- AI 使用須知 -->
+        <section id="ai-notice" class="bg-white rounded-lg shadow-sm p-6">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-robot text-purple-600 text-2xl mr-3"></i>
+            <h2 class="text-2xl font-bold text-gray-900">AI 使用須知</h2>
+          </div>
+
+          <div class="grid gap-6">
+            <!-- AI 模型特性 -->
+            <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 border border-purple-100">
+              <h3 class="text-lg font-semibold text-purple-800 mb-4 flex items-center">
+                <i class="fas fa-microchip mr-2"></i>
+                AI 模型特性
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-purple-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">AI 的回答會受到提問方式、上下文及用詞的影響，可能產生不一致的結果。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-purple-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">AI 可能產生「幻覺」(Hallucination)，即生成看似合理但實際並不存在的內容。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-purple-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">AI 的知識有截止日期，可能無法回應最新的詐騙手法。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 使用限制 -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
+              <h3 class="text-lg font-semibold text-blue-800 mb-4 flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>
+                使用限制
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-exclamation-circle text-blue-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">系統會自動過濾或拒絕處理含有敏感內容的提問。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-exclamation-circle text-blue-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">禁止使用不當提示詞引導 AI 產生違法或有害內容。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-exclamation-circle text-blue-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">對於使用者故意誤導 AI 產生的回答，本平台不承擔任何責任。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 重要聲明 -->
+            <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 border border-red-100">
+              <h3 class="text-lg font-semibold text-red-800 mb-4 flex items-center">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                重要聲明
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-red-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">AI 的分析結果僅供參考，不應作為唯一決策依據。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-red-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">重要決定請諮詢專業人士或撥打 165 反詐騙專線。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times-circle text-red-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台不對任何因信賴 AI 建議而產生的損失負責。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 免責聲明 -->
+        <section id="disclaimer" class="bg-white rounded-lg shadow-sm p-6">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mr-3"></i>
+            <h2 class="text-2xl font-bold text-gray-900">免責聲明</h2>
+          </div>
+
+          <div class="grid gap-6">
+            <!-- 服務聲明 -->
+            <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6 border border-yellow-100">
+              <h3 class="text-lg font-semibold text-yellow-800 mb-4 flex items-center">
+                <i class="fas fa-file-alt mr-2"></i>
+                服務聲明
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台提供的所有內容均「按原樣」提供或「按原樣」供 AI 模型分析之結果，不附帶任何形式的保證。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">統計數據可能存在時間差，不代表即時情況。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台不保證能識別所有類型的詐騙行為或風險。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 責任限制 -->
+            <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 border border-orange-100">
+              <h3 class="text-lg font-semibold text-orange-800 mb-4 flex items-center">
+                <i class="fas fa-ban mr-2"></i>
+                責任限制
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-exclamation-circle text-orange-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">對於使用者因信賴本平台資訊而造成的任何損失，本平台概不負責。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-exclamation-circle text-orange-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台不對第三方連結的內容負責。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-exclamation-circle text-orange-500 mt-1 mr-3"></i>
+                  <span class="text-gray-700">因系統維護、網路問題等導致的服務中斷，本平台不承擔責任。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 使用條款 -->
+        <section id="terms" class="bg-white rounded-lg shadow-sm p-6">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-file-contract text-green-600 text-2xl mr-3"></i>
+            <h2 class="text-2xl font-bold text-gray-900">使用條款</h2>
+          </div>
+
+          <div class="grid gap-6">
+            <!-- 使用規範 -->
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100">
+              <h3 class="text-lg font-semibold text-green-800 mb-4 flex items-center">
+                <i class="fas fa-check-circle mr-2"></i>
+                使用規範
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-times text-green-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">禁止以任何方式濫用、破壞或試圖入侵本平台系統。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times text-green-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">禁止使用自動化工具或腳本大量訪問本平台。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times text-green-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">禁止散布不實資訊或惡意內容。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times text-green-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">禁止冒充他人或機構進行任何形式的活動。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times text-green-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">禁止利用本平台從事任何違法或不當行為。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-times text-green-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">使用者必須遵守相關法律法規及本平台的各項規定。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 服務限制 -->
+            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-100">
+              <h3 class="text-lg font-semibold text-emerald-800 mb-4 flex items-center">
+                <i class="fas fa-exclamation-circle mr-2"></i>
+                服務限制
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台保留限制或終止任何使用者使用權限的權利，無需事先通知。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">每日免費使用次數可能受到限制，具體限制可能會根據系統負載調整。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">單次分析的內容長度和格式可能受到限制。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台可能因維護或更新而暫時停止服務。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 資訊共享 -->
+            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-100">
+              <h3 class="text-lg font-semibold text-emerald-800 mb-4 flex items-center">
+                <i class="fas fa-share-alt mr-2"></i>
+                資訊共享
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">歡迎分享防詐相關資訊，但請註明來源。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">歡迎各界提供詐騙相關資訊，共同建立防詐網。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">鼓勵學校、社區組織使用本平台資源進行防詐教育。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">使用者分享的詐騙經驗將經過匿名化處理後用於改善服務。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 資料準確性 -->
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-100">
+              <h3 class="text-lg font-semibold text-teal-800 mb-4 flex items-center">
+                <i class="fas fa-clipboard-check mr-2"></i>
+                資料準確性
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-teal-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台會盡力確保內容的準確性，但不對資料的完整性、即時性和準確性作出任何保證。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-teal-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">使用者應理解 AI 技術的局限性，並接受可能存在的分析誤差。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-teal-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台保留隨時更正或更新內容的權利，無需事先通知。</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 條款修改 -->
+            <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-100">
+              <h3 class="text-lg font-semibold text-teal-800 mb-4 flex items-center">
+                <i class="fas fa-edit mr-2"></i>
+                條款修改
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-teal-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">本平台保留隨時修改使用條款的權利，修改後立即生效。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-teal-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">使用者應定期查看最新條款，繼續使用即表示同意修改內容。</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-info-circle text-teal-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">重大修改將透過平台公告或電子郵件通知使用者。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 隱私權政策 -->
+        <section id="privacy" class="bg-white rounded-lg shadow-sm p-6">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-user-shield text-blue-600 text-2xl mr-3"></i>
+            <h2 class="text-2xl font-bold text-gray-900">隱私權政策</h2>
+          </div>
+
+          <div class="grid gap-6">
+            <!-- 資料收集 -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
+              <h3 class="text-lg font-semibold text-blue-800 mb-4 flex items-center">
+                <i class="fas fa-database mr-2"></i>
+                資料收集
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Google 帳號基本資訊（用於身分驗證）</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">使用者提供的對話內容（僅用於即時分析）</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">網站使用統計資料（匿名化處理）</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 資料保護 -->
+            <div class="bg-gradient-to-br from-indigo-50 to-violet-50 rounded-xl p-6 border border-indigo-100">
+              <h3 class="text-lg font-semibold text-indigo-800 mb-4 flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>
+                資料保護
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-lock text-indigo-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">所有資料均經加密處理</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-lock text-indigo-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">定期進行安全性檢查</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-lock text-indigo-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">嚴格的資料存取控制</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 聯絡資訊 -->
+        <section class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-sm p-6 text-white">
+          <div class="text-center">
+            <h2 class="text-2xl font-bold mb-4">需要協助？</h2>
+            <p class="mb-4">如有任何問題，請聯繫我們或撥打 165 反詐騙專線</p>
+            <div class="flex justify-center space-x-4">
+              <a href="mailto:support@example.com" class="bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition-colors duration-200 flex items-center">
+                <i class="fas fa-envelope mr-2"></i>
+                聯絡我們
+              </a>
+              <a href="tel:165" class="bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition-colors duration-200 flex items-center">
+                <i class="fas fa-phone mr-2"></i>
+                165 專線
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-100 mt-12">
+      <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="text-center text-gray-600 text-sm">
+          <p>&copy; 2025 AI防詐衛士. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Loading Screen Script -->
+    <script>
+      window.addEventListener("load", function () {
+        const loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.classList.add("fade-out");
+        setTimeout(() => {
+          loadingScreen.style.display = "none";
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

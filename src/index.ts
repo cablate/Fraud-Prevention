@@ -4,6 +4,7 @@ import { initializeDatabase } from "./database/index";
 import { router as fraudRouter } from "./routes/fraud";
 import { ScamCrawler } from "./services/crawler";
 import { scheduleCrawler } from "./services/crawler/scheduler";
+import { aiAnalyzeEveryDay } from "./services/ai_analyzeEveryDay";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,6 +20,9 @@ app.set("views", path.join(process.cwd(), "src/views"));
 app.use("/public", express.static(path.join(process.cwd(), "src/views/public")));
 // 路由
 app.use("/", fraudRouter);
+app.use("/privacy", (req, res) => {
+  res.render("privacy");
+});
 
 // 初始化資料庫
 initializeDatabase()
@@ -28,6 +32,7 @@ initializeDatabase()
     const crawler = new ScamCrawler();
     // crawler.processNoTitleCases();
     // crawler.crawl();
+    // aiAnalyzeEveryDay();
     console.log("建立排程爬蟲任務");
     scheduleCrawler();
     console.log("排程爬蟲任務建立完成");

@@ -31,6 +31,24 @@ export async function initializeDatabase() {
     )
   `);
 
+  // 創建每日詐騙案例分析總結表
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS daily_analysis (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      analysis_date DATE NOT NULL,
+      content TEXT NOT NULL,
+      case_count INTEGER NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(analysis_date)
+    )
+  `);
+
+  // 創建每日分析表的索引
+  await db.exec(`
+    CREATE INDEX IF NOT EXISTS idx_analysis_date ON daily_analysis(analysis_date);
+    CREATE INDEX IF NOT EXISTS idx_daily_created_at ON daily_analysis(created_at);
+  `);
+
   // 創建索引
   await db.exec(`
     CREATE INDEX IF NOT EXISTS idx_content_hash ON scam_cases(content_hash);

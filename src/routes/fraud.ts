@@ -9,12 +9,22 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-// 獲取所有詐騙案例
-router.get("/cases", async (req, res) => {
+// 每日詐騙案例分析報告
+router.get("/api/daily-report", async (req, res) => {
   try {
     const db = getDatabase();
-    const cases = await db.all("SELECT * FROM scam_cases ORDER BY created_at DESC");
-    res.json(cases);
+    const latestReport = await db.get("SELECT * FROM daily_analysis ORDER BY analysis_date DESC LIMIT 1");
+    const analysisDate = latestReport.analysis_date;
+    const cases = await db.all("SELECT * FROM scam_cases WHERE DATE(publish_date) = ?", [analysisDate]);
+    // 統計各分類數量
+    const typeDistribution = cases.reduce((acc: { [key: string]: number }, curr: any) => {
+      acc[curr.category] = (acc[curr.category] || 0) + 1;
+      return acc;
+    }, {});
+
+    // 將分類統計加入報告
+    latestReport.typeDistribution = typeDistribution;
+    res.json(latestReport);
   } catch (error) {
     console.error("獲取案例失敗:", error);
     res.status(500).json({ error: "獲取案例失敗" });
