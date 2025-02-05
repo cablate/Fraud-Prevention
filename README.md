@@ -43,7 +43,7 @@
    
 5. **設定爬蟲資料來源**
    
-   編輯 [src/datasource/index.tx](src/datasource/index.tx) 來自訂資料來源與 Selector，詳情請參考專案內的範例檔案。
+   編輯 [src/datasource/index.ts](src/datasource/index.ts) 來自訂資料來源與 Selector，詳情請參考專案內的範例檔案。
 
 6. **啟動專案**
    ```bash
